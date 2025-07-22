@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Patient History</title>
+	<meta charset="utf=8">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+			<div class= "container-fluid">
+				<a class="navbar-brand" href="web_design.html">Astek Diagnostic Bladder App</a>
+				<div class="collapse navbar-collapse">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item"><a class="nav-link" href="web_design.html">Test Page</a></li>
+						<li class="nav-item"><a class="nav-link" href="test_file.html"></a></li>
+						<li class="nav-item"><a class="nav-link active" href="patient_results.html"></a></li>
+
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<main class="container">
+		<h2>Patient History</h2>
+		<div id="historyContainer">
+			<p> Getting Patient History... </p>
+		</div>
+	</main>
+
+	<script>
+	document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        const response = await fetch("/get-patient-history");
+        const history = await response.json();
+        const container = document.getElementById("historyContainer");
+        container.innerHTML = history.map(item => `
+            <div class="card my-2 p-3">
+                <h5>${item.patient_name} (${item.patient_age} yrs)</h5>
+                <p><strong>Date:</strong> ${item.date}</p>
+                <p><strong>Likelihood:</strong> ${item.likelihood}</p>
+            </div>
+        `).join("");
+    } catch (err) {
+        console.error("Failed to load history:", err);
+        document.getElementById("historyContainer").textContent = "Error loading history.";
+    }
+});
+	</script>

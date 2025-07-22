@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Astek Bladder App</title>
+	<meta http-equiv="Content-Type" content= "text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- link to a css file needs to be implemented-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="web_design.css">
+	
+</head>
+
+<body>
+	<header>
+    	<nav>
+        	<label class="logo">
+           	 <img src="images/icon.png" alt="icon" style="height: 50px; vertical-align: middle; margin-right: 15px; position: relative; top:-5px;">
+        	</label>
+        	<ul>
+            	<li><a class="active" href="web_design.html">Form Page</a></li>
+            	<li><a href="test_file.html">Test Results</a></li>
+            	<li><a href="patient_results.html">Patient History</a></li>
+            	<li style="margin-left: 400px;"></li>
+            	<!-- Named logout as of now, thinking of implementing something with it just not sure yet -->
+            	<li><a class="disablegreen" href="logout.php">
+                	<button id="logout">Log Out</button>
+            	</a></li>
+        	</ul>
+    	</nav>
+	</header>
+</body>
+
+	<!-- section will be used for data collection being sent to a JavaScript file-->
+
+<main class="container">
+	<form id="symptomForm">
+
+		<!-- Patient information category box-->
+
+		<h2>Patient Information</h2>
+		<section class="patientinfo">
+			<label> Patient Name </label>
+			<input type="text" id="patient_name" name="user" required>
+
+			<label> Age </label>
+			<input type="text" id="patient_age" name="age" required>
+
+			<label>Sex</label>
+			<select class="sex-select" id="patient_sex" required>
+				<option value="none">-Select-</option>
+				<option value="Male">Male</option>
+				<option value="Female">Female</option>
+				<option value="Other">Other</option>
+			</select>
+
+			<label>Weight (kg)</label>
+			<input type="text" id="patient_weight" name="weight" required>
+
+		</section>
+
+	<br>
+			<!-- Action symptoms here -->
+
+		<h2>Actionable Symptoms</h2>
+		<section id= "actsymptoms" class="action_symptoms">
+			<div class="actsymptoms">
+				<label class="actsymptoms-form" for="bladder_spasms">Bladder spasm frequency/discomfort</label>
+			<input class="actsymptoms-form-check" type="checkbox" id="bladder_spasms"> 
+			</div>
+
+			<div class="actsymptoms">
+				<label class="actsymptoms-form" for="difficulty_walking">Difficulty ambulating (walking)</label>
+				<input class="actsymptoms-form-check" type="checkbox" id="ambulating"> 
+			</div>
+
+			<div class="actsymptoms">
+				<label class="actsymptoms-form" for="increase_tone">Increase in tone/spasticity</label>
+				<input class="actsymptoms-form-check" type="checkbox" id="increase_tone"> 
+			</div>
+
+			<div class="actsymptoms">
+				<label class="actsymptoms-form" for="sweating">Sweating</label>
+				<input class="actsymptoms-form-check" type="checkbox" id="sweating"> 
+			</div>
+
+			<div class="actsymptoms">
+				<label class="actsymptoms-form" for="feverish">Feverish feeling</label>
+				<input class="actsymptoms-form-check" type="checkbox" id="feverish"> 
+			</div>
+
+			<div class="actsymptoms">
+				<label class="actsymptoms-form" for="mental_fog">Mental Fogginess, difficulty thinking</label>
+				<input class="actsymptoms-form-check" type="checkbox" id="mental_fog"> 
+			</div>
+
+			<div class="actsymptoms">
+				<label class="actsymptoms-form" for="spinal_cord">Autonomic Dysreflexia (Spinal cord injury only)</label>
+				<input class="actsymptoms-form-check" type="checkbox" id="spinal_cord"> 
+			</div>
+	
+			<div class="actsymptoms">
+				<label class="actsymptoms-form" for="ms">Multiple Sclerosis flare-up (MS only) </label>
+				<input class="actsymptoms-form-check" type="checkbox" id="ms"> 
+			</div>
+		</section>
+
+		<!--Bladder symptoms here-->
+
+		<h2>Bladder Symptoms</h2>
+
+		<section id= "bladder_symptoms" class="bladder_symptoms">
+
+			<div class="bladder_symptoms">
+				<label class="bladdersymptoms-form" for="blood_in_urine">Blood in urine</label>
+				<input class="bladdersymptoms-form_check" type="checkbox" id="blood">
+			</div>
+
+			<div class="bladder_symptoms">
+				<label class="bladdersymptoms-form" for="increase_urination">Increased frequency of urination</label>
+				<input class="bladdersymptoms-form_check" type="checkbox" id="increase_urination">
+			</div>
+
+			<div class="bladder_symptoms">
+				<label class="bladdersymptoms-form" for="urinary_urge">Urinary urgency</label>
+				<input class="bladdersymptoms-form_check" type="checkbox" id="urinary_urge">
+			</div>
+
+			<div class="bladder_symptoms">
+				<label class="bladdersymptoms-form" for="sensation">Sensation of urgency</label>
+				<input class="bladdersymptoms-form_check" type="checkbox" id="sensation">
+			</div>
+
+			<div class="bladder_symptoms">
+				<label class="bladdersymptoms-form" for="reduce_volume">Reduced urine volume</label>
+				<input class="bladdersymptoms-form_check" type="checkbox" id="reduce_volume">
+			</div>
+
+			<div class="bladder_symptoms">
+				<label class="bladdersymptoms-form" for="nonempty_bladder">Inability to fully empty bladder</label>
+				<input class="bladdersymptoms-form_check" type="checkbox" id="nonempty_bladder">
+			</div>	
+		</section>
+
+
+		<!--Urine Quality Symptoms here-->
+
+		<h2>Urine Quality Symptoms</h2>
+
+		<section id= "urine_quality" class="urine_quality">
+			<div class="urine_quality">
+				<label class="urinesymptoms-form" for="worse-smell">Worse-smelling urine</label>
+				<input class="urinesmyptoms-form_check" type="checkbox" id="worse-smell">
+			</div>
+
+			<div class="urine_quality">
+				<label class="urinesymptoms-form" for="darker">Darker urine</label>
+				<input class="urinesmyptoms-form_check" type="checkbox" id="darker">
+			</div>
+
+			<div class="urine_quality">
+				<label class="urinesymptoms-form" for="cloudy">Cloudier/sediment in urine</label>
+				<input class="urinesmyptoms-form_check" type="checkbox" id="cloudy">
+			</div>
+		</section>
+
+
+		<!--Other Symptoms here--> 
+
+		<h2>Other Symptoms</h2>
+
+		<section id= "other-symptoms" class="other-symptoms">
+			<div class="other-symptoms-form" for="malaise">
+				<label class="othersymptoms-form_check" for= "malaise">Malaise, feeling unwell</label>
+				<input type="checkbox" id="malaise" name="unwell">
+			</div>
+
+			<div class="other-symptoms-form" for="fatigue">
+				<label class="othersymptoms-form_check" for="fatigue">Increase in fatigue, lethargy, or weakness</label>
+				<input type="checkbox" id="fatigue" name="lethargy">
+			</div>
+
+			<div class="other-symptoms-form" for="chills">
+				<label class="othersymptoms-form_check" for="chills">Chills</label>
+				<input type="checkbox" id="chills" name="chills">
+			</div>
+
+
+			<div class="other-symptoms-form" for="nausea">
+				<label class="othersymptoms-form_check" for="nausea">Nausea</label>
+				<input type="checkbox" id="nausea" name="nausea">
+			</div>
+
+			<div class="other-symptoms-form" for="vomiting">
+				<label class="othersymptoms-form_check" for= "vomiting" >Vomiting</label>
+				<input type="checkbox" id="vomiting" name="vomit">
+			</div>
+		</section>
+
+	<!-- submit button used by a user to submit to the php and js-->
+	<button type="submit" class="btn btn-submit w-100 mb-4">Calculate UTI Likelihood</button>
+	</form>
+
+	<div id="resultsDiv"></div>
+	<div id="thankyou" style="display:none"></div>
+		<h2>Thank you!</h2>
+		<p>Your symptoms have been submitted successfully</p>
+	</div>
+
+</main>
+
+
+<!-- javascript implementation into the HTML-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="web_design.js"></script>
+
+
+</html>
